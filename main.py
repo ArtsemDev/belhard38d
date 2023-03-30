@@ -1,2 +1,6 @@
 print('hello python')
 print('goodbye')
+print('goodbye')
+print('goodbye')
+print('goodbye')
+print('goodbye')
