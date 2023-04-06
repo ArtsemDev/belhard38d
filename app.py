@@ -197,6 +197,3 @@
 # print(text.count('\n'))
 #
 # print(text)
-
-
-
