@@ -219,3 +219,6 @@ data = {
 
 
 # TODO Написать генератор заполненного судоку, выполняется за <1 сек
+
+# number = int(input())
+is_even = 'No' if (number := int(input())) % 2 else 'Yes'
