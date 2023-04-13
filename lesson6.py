@@ -299,3 +299,74 @@ def foo():
 # result = [[*filter(lambda x: x, line)] for line in zip_longest(numbers, numbers, numbers, numbers, numbers)]
 # for line in result:
 # 	print(*line)
+
+from functools import reduce
+
+
+# numbers = [1, 2, 3, 4, 5]
+# result = reduce(lambda x, y: x * y, numbers)
+# print(result)
+
+# def is_decimal(func):
+# 	def wrapper(*args):
+# 		for arg in args:
+# 			if not isinstance(arg, (int, float)):
+# 				raise ValueError('must be decimal')
+# 		result = func(*args)
+# 		return f'{result=}'
+
+# 	return wrapper
+
+
+# # @is_decimal
+# def multiply(*args):
+# 	return reduce(lambda x, y: x * y, args)
+
+
+# wrapped_multiply = is_decimal(multiply)
+
+
+# print(multiply(1, 2, 3, 4, 5))
+# print(wrapped_multiply(1, 2, 3, 4, 5))
+
+
+# def is_instance(types):
+# 	def wrapper(func):
+# 		def wrapped(*args):
+# 			for arg in args:
+# 				if not isinstance(arg, types):
+# 					raise ValueError
+# 			return func(*args)
+
+# 		return wrapped
+# 	return wrapper
+
+
+# @is_instance((int, float))
+# def multiply(*args):
+# 	return reduce(lambda x, y: x * y, args)
+
+
+# @is_instance(str)
+# def concatenate(*args):
+# 	return ''.join(args)
+
+
+
+# print(multiply(1, 2, 3, 4, 5))
+# print(concatenate('hello', 'world', 'python'))
+
+
+# def foo():
+# 	foo.a = 5
+
+
+# foo()
+# print(foo.a)
+
+
+# number: list[int] = [1, 2, 3, 4, 5]
+
+
+def multiply(a: int | float, b: int | float) -> int | float:
+	return a * b
