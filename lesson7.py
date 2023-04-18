@@ -195,24 +195,81 @@ def find_country(city: str) -> str:
 
 
 # Task 6_9
-users = {
-	1: {
-		'name': 'Alex',
-		'email': 'alex@gmail.com'
-	},
-	2: {
-		'name': 'Pavel',
-		'email': ''
-	},
-	3: {
-		'name': 'Masha'
-	},
-	4: {
-		'name': 'Maksim',
-		'email': None
-	}
-}
-for user in users.values():
-	if not user.get('email'):
-	# if 'email' not in user or user['email'] == '' or user['email'] if None:
-		print(user.get('name'))
+# users = {
+# 	1: {
+# 		'name': 'Alex',
+# 		'email': 'alex@gmail.com'
+# 	},
+# 	2: {
+# 		'name': 'Pavel',
+# 		'email': ''
+# 	},
+# 	3: {
+# 		'name': 'Masha'
+# 	},
+# 	4: {
+# 		'name': 'Maksim',
+# 		'email': None
+# 	}
+# }
+# for user in users.values():
+# 	if not user.get('email'):
+# 	# if 'email' not in user or user['email'] == '' or user['email'] if None:
+# 		print(user.get('name'))
+
+
+# TODO Вводится число, вывести максимальную цифру числа
+#  example: in 384 -> out 8
+def max_digit(number: int) -> int:
+	return int(max(f'{number}'))
+
+# TODO Есть монеты номиналом 1, 5, 10, 25 коп
+#  На вход функции поступает число, необходимо сказать
+#  Сколько монет минимально необходимо для представления
+#  Данного числа
+#  example: in 49 (25 + 10 + 10 + 1 + 1 + 1 + 1) -> out 7
+def coins_count(amount: int, coins: tuple[int] = None) -> int:
+	if coins is None:
+		coins = (25, 10, 5, 1)
+	else:
+		coins = sorted(coins, reverse=True)
+	count = 0
+	for coin in coins:
+		count += amount // coin
+		amount -= (amount //  coin) * coin
+	return count
+
+
+# TODO Дан список рандомных чисел, вернуть True если
+#  в списке нет одинаковых чисел рядом стоящих
+#  в противном случае False
+#  example: [1, 3, 2, 4, 3, 5, 4, 4] -> False
+#  example: [1, 2, 3, 4, 2, 3, 4] -> True
+def is_not_equal_neighbors(numbers: list[int | float]) -> bool:
+	for i in range(len(numbers) - 1):
+		if numbers[i] == numbers[i+1]:
+			return False
+	return True
+
+
+# TODO Вводится текст, необходимо подсчитать колличество
+#  гласных и согласных букв в тексте
+text = 'Hello world!'
+vowels = 'eyuioaёуеыаоэяию'
+vowels_count = 0
+consonants_count = 0
+for el in text:
+	if el.isalpha():
+		if el.lower() in vowels:
+			vowels_count += 1
+		else:
+			consonants_count += 1
+# print(f'{vowels_count=} {consonants_count=}')
+
+# TODO Дан словарь, ключами выспупают строки, а значениями
+#  числа, необходимо вывести ключи в порядке возрастания 
+#  их значений
+#  example: {'a': 3, 'b': 1, 'c': 2} -> bca
+data = {'a': 3, 'b': 1, 'c': 2}
+data = ' '.join([x[0] for x in sorted(data.items(), key=lambda x: x[1])])
+print(data)
