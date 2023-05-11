@@ -1,0 +1,8 @@
+{
+	"name": "Alex",
+	"city": "Minsk",
+	"age": 35,
+	"is_human": true,
+	"languages": ["ru", "en"],
+	"email": null
+}
