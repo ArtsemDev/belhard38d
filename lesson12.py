@@ -35,7 +35,7 @@ class MyStr(str):
 from sqlite3 import connect
 
 
-conn = connect('db.sqlite3')
+conn = connect('db.sqlite3')  # .db .sqlite3
 cur = conn.cursor()
 cur.execute('''
 CREATE TABLE IF NOT EXISTS category(
