@@ -28,13 +28,14 @@
 
 from sqlalchemy import Column, SMALLINT, VARCHAR, INT, ForeignKey, DECIMAL, create_engine
 from sqlalchemy.orm import DeclarativeBase, declared_attr, sessionmaker, Session
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 
 
 class Base(DeclarativeBase):
     id = Column(INT, primary_key=True)
 
-    engine = create_engine('postgresql://belhard:belhard@localhost:5432/bh38d')
-    session = sessionmaker(bind=engine)
+    engine = create_async_engine('postgresql+asyncpg://milvus:F6r58h7G2e@localhost:5432/milvus')
+    session = async_sessionmaker(bind=engine)
 
     @declared_attr
     def __tablename__(cls) -> str:
